@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include 'header_files.html' %}
+  <meta charset="UTF-8">
+  <title>Search Questions (Case sensitive!)</title>
+
+</head>
+<body onload="select_header('topnav_search_questions')">
+{% include 'header.html' %}
+
+<P>Enter question (Case sensitive!) </P>
+<!--suppress HtmlUnknownTarget -->
+<div class="surrond_form">
+    <FORM id="question_form" ACTION="/bankdomain/search_questions_submit" METHOD="POST">
+    <div class="surrond_form">
+    <p>
+    <label for="question" ></label>
+
+    <textarea class="textarea_big" id="question" name="question" rows="10" cols="60">{{question | default('')}}</textarea>
+    </p>
+         <input id="page_id" name="page_id"  type="hidden" value="0"  />
+
+        <input  class="main" type="submit" value="Submit"  />
+        <input class="main" type="submit" value="Random" onclick="random_question('question_form');"  />
+    </div>
+ </FORM>
+</div>
+
+
+{% if tokens_not_found : %}
+<table border="1">
+    <CAPTION>Not in Dictionary (Check spelling)</CAPTION>
+
+    <tr>
+        <th>Missing Token</th>
+
+    </tr>
+    {% for token in tokens_not_found: %}
+    <tr><td>{{token}}</td></tr>
+    {% endfor %}
+{% endif %}
+<BR>
+
+{% if token_list : %}
+
+
+
+<BR>
+
+<table border="1">
+    <CAPTION>Found tokens</CAPTION>
+
+    <tr>
+        <th>Orig Token</th>
+        <th><span>Related concepts</span></th>
+
+
+      </tr>
+
+        {% for _ in token_list : %}
+
+            <tr>
+
+                <td > <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+                    {{_.token}}</A></td>
+
+                 <td > <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+                    {{_.rel_tokens}}</A></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+<BR>
+{% endif %}
+
+{% if docs : %}
+
+    <table border="1">
+    <CAPTION>Answers Found</CAPTION>
+
+    <tr>
+        <th class="icon"><span class="hide-1000">Similar</span></th>
+        <th>Question</th>
+        <th><span>Answer</span></th>
+        <th class="columnscore">Score</th>
+        <th class="columnscore">TfIdf</th>
+        <th class="columnscore">Wv</th>
+      </tr>
+
+        {% for _ in docs : %}
+
+            <tr>
+                <td class="icon">
+                    <A HREF="javascript:find_similar('{{_.question}}')" >
+                        <IMG SRC="{{ url_for('static', filename='images/find_similar.png') }}" ALT="Find similar" TITLE="Find similar">
+                    </A>
+                </td>
+
+                <td > <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+                    {{_.question}}</A></td>
+
+                 <td > <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+                    {{_.answer}}</A></td>
+                <td class="columnscore"> <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+                    {{'%0.3f'| format(_.score|float)}}</A></td>
+                <td > <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+                    {{'%0.3f'| format(_.tfidf_score|float)}}</A></td>
+                <td> <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+                    {{'%0.3f'| format(_.wv_score|float)}}</A></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+{% if docs: %}
+    <div class="buttonrow">
+            {% if page_id and page_id > 0: %}
+                    <input class="main" type="submit" value="<<< Back" onclick="move_to_page('{{ page_id - 1 }}','question_form')"/>
+            {% endif %}
+
+            <div class="buttoncolumn">
+                <B>{{page_id+1 | default(0) }}</B>
+            </div>
+            <input class="main" type="submit" value="Forward >>> " onclick="move_to_page('{{ page_id + 1 }}','question_form')" />
+
+
+        <BR>
+    </div>
+{% endif %}
+</body>
+</html>
