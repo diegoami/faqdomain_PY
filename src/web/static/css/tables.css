@@ -42,6 +42,13 @@ th.date, td.date {
   width:80px;
 }
 
+.question {
+    padding: 5px;
+}
+
+.answer {
+    padding: 5px;
+}
 
 .columnscore {
    width:100px;
