@@ -3,24 +3,24 @@
 <head>
   {% include 'header_files.html' %}
     <meta charset="UTF-8">
-  <title>Dictionary</title>
+  <title>Wortschatz</title>
 
 </head>
 <body onload="select_header('topnav_show_words')">
 {% include 'header.html' %}
-<P>Words</P>
+<P>Wörter</P>
 
 {% if wps : %}
 
 <BR>
 <table border="1">
-    <CAPTION>Words</CAPTION>
+    <CAPTION>Wörter</CAPTION>
 
     <tr>
-        <th>Word</th>
-        <th>Count</th>
-        <th>Forms</th>
-        <th>Synonyms</th>
+        <th>Wort</th>
+        <th>Anzahl</th>
+        <th>Formen</th>
+        <th>Synonyme</th>
 
 
       </tr>
@@ -40,6 +40,6 @@
 
 <BR>
 {% endif %}
-
+{% include 'footer.html' %}
 </body>
 </html>

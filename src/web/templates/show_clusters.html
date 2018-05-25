@@ -3,17 +3,17 @@
 <head>
 {% include 'header_files.html' %}
   <meta charset="UTF-8">
-  <title>Number of Clusters</title>
+  <title>Anzahl Clusters</title>
 
 </head>
 <body onload="select_header('topnav_show_clusters')">
 {% include 'header.html' %}
-<P>Number of clusters</P>
+<P>Anzahl Clusters</P>
 <!--suppress HtmlUnknownTarget -->
 <FORM id="clusters_form" ACTION="/bankdomain/show_clusters_submit" METHOD="POST">
     <div class="surrond_form">
     <p>
-    <label for="num_clusters" >N Clusters</label>
+    <label for="num_clusters" >Anzahl Clusters</label>
 
          <input id="num_clusters" name="num_clusters" value="{{num_clusters | default('')}}"  />
     <P><input type="submit" value="submit"  /></P>
@@ -30,7 +30,7 @@
 
     <tr>
         <th>Cluster</th>
-        <th><span>Words in cluster</span></th>
+        <th><span>Wörter im Cluster</span></th>
 
 
       </tr>
@@ -50,6 +50,6 @@
 
 <BR>
 {% endif %}
-
+{% include 'footer.html' %}
 </body>
 </html>

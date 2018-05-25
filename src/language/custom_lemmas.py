@@ -402,6 +402,7 @@ CUSTOM_LOOKUP = {
     "chipTAN-Generatoren": "chipTAN-Generator",
 
     "chipTAN-Verfahrens" : "chipTAN-Verfahren",
+    "Codes" : "Code",
     "Coupons" : "Coupon",
     "Darlehensbeträgen" : "Darlehensbetrag",
     "Darlehensbeträge": "Darlehensbetrag",
@@ -434,6 +435,10 @@ CUSTOM_LOOKUP = {
     "Daueraufträgen": "Dauerauftrag",
     "Dauerauftrages" : "Dauerauftrag",
     "Dauerauftrags": "Dauerauftrag",
+    "deaktiviert" : "deaktivieren",
+    "deaktiviere": "deaktivieren",
+    "deaktivierst": "deaktivieren",
+    "deaktivieren": "deaktivieren",
     "De-Mails" : "De-Mail",
     "Debitors" : "Debitor",
     "Debitoren": "Debitor",

@@ -5,13 +5,13 @@ CUSTOM_STOP_WORDS  = set("""
  above aufgrund and auf Auf at At aufs als Als am Am auch Auch außerdem	außerhalb Außerhalb Außerdem
  Allerdings allerdings andererseits Andererseits angesichts Angesichts
  Bei bevor bezüglich bitte Bitte beim Beim bereits Bereits bezüglich Bezüglich bis Bis bislang Bislang bestens Bestens
- c
+ c C
  d daraufhin Daraufhin demnach dennoch Dennoch desto Da dass diesbezüglich das Das davon Davon daher Daher deine Deine deines Deines  d
  dabei Dabei damit Damit dazu Dazu danach Danach dort Dort darüber Darüber durch Durch dann Dann derzeit Derzeit daneben Daneben
  darf Darf demnächst Demnächst darin Darin
  e ein Ein ehe Ehe eher Eher einfach Einfach ebenfalls Ebenfalls
  einerseits Einerseits ebenso Ebenso erstmals Erstmals
- f ggf ggf. 
+ f F ggf ggf. 
  falls
  fast for For
  Ferner ferner fürs Fürs für Für 
