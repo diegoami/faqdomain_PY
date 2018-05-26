@@ -28,7 +28,7 @@ def process_documents(data_dir, output_dir):
 
 
 if __name__ == '__main__':
-    config = yaml.safe_load(open("config.yml"))
+    config = yaml.safe_load(open("../config.yml"))
     model_dir = config['models_dir']
     output_dir = config['output_dir']
 

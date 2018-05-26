@@ -193,6 +193,7 @@ footer {
   float: left;
   height: auto;
   width: 250px;
+  font-size: 1.2em;
 }
 
 @media screen and (min-width: 400px) {
